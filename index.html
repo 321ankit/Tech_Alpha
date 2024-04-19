@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Platypi:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+    <title>Age_Calculator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 65%;
+        }
+
+        #nm1 {
+            font-family: "Platypi", serif;
+        }
+
+        #nm2 {
+            font-family: "Josefin Sans", sans-serif;
+        }
+
+        #sp1 {
+            font-family: "Teko", sans-serif;
+        }
+
+        #main2 {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        #main3 {
+            height: 50vh;
+            width: 40vw;
+            border-radius: 0.2rem;
+            border: 0.1rem solid rgba(0, 0, 0, 0.262);
+            box-shadow: 0.5rem 0.5rem 0.9rem rgba(0, 0, 0, 0.451);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            margin-top: 1rem;
+        }
+
+        #main4 {
+            height: 15vh;
+            width: 25vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        #main5 {
+            height: 15vh;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            margin: 0.2rem;
+        }
+
+        .inp {
+            width: 7rem;
+            height: 2.5rem;
+            border: 0.2rem solid rgba(0, 0, 0, 0.517);
+            padding-left: 0.5rem;
+        }
+
+        #s1 {
+            width: 7rem;
+            height: 2.5rem;
+            margin: 0 0.3rem;
+            border: 0.2rem solid rgba(0, 0, 0, 0.517);
+            padding-left: 0.2rem;
+        }
+
+        #btn {
+            width: 10rem;
+            height: 2.5rem;
+            color: white;
+            background-color: black;
+            border: 1px solid black;
+            border-radius: 5rem;
+            margin-bottom: 1rem;
+        }
+
+        @media screen and (max-width:600px) {
+            html {
+                font-size: 40%;
+            }
+
+            #main3 {
+                height: 20vh;
+                width: 50vw;
+                margin-top: 1rem;
+            }
+
+            #main4 {
+                height: 5vh;
+                width: 25vw;
+                margin-bottom: 1rem;
+            }
+
+            #main5 {
+                height: 12vh;
+                margin: 0.2rem;
+            }
+
+            .inp {
+                width: 10rem;
+                height: 5rem;
+            }
+
+            #s1 {
+                width: 10rem;
+                height: 5rem;
+            }
+
+            #btn {
+                width: 15rem;
+                height: 4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="main1">
+        <div id="main2">
+            <h1 id="nm1">Age Calculator</h1>
+            <div id="main3">
+                <h3 id="nm2">Enter Your Date Of Birth(DOB) :</h3>
+                <div id="main4">
+                    <input class="inp" type="number" id="i1" placeholder="Date" />
+                    <select name="" id="s1" class="inp">
+                        <option value="" selected disabled>Month</option>
+                        <option value="1">Jan</option>
+                        <option value="2">Feb</option>
+                        <option value="3">March</option>
+                        <option value="4">April</option>
+                        <option value="5">May</option>
+                        <option value="6">June</option>
+                        <option value="7">July</option>
+                        <option value="8">Aug</option>
+                        <option value="9">Spt</option>
+                        <option value="10">Oct</option>
+                        <option value="11">Nov</option>
+                        <option value="12">Dec</option>
+                    </select>
+                    <input class="inp" type="number" id="i2" placeholder="Year" />
+                </div>
+                <div id="main5">
+                    <button id="btn" onclick="Calc()">Calculate</button>
+                    <h2 id="sp1"></h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function Calc() {
+            let Bday = Number(document.getElementById('i1').value);
+            let Bmonth = Number(document.getElementById('s1').value);
+            let Byear = Number(document.getElementById('i2').value);
+            if (Bday == '' || Bmonth == '' || Byear == '') {
+                alert('Enter Your Birth Date')
+            } else {
+                var temp
+                switch (Bmonth) {
+                    case 1: temp = 30
+                        break;
+                    case 2: temp = 29
+                        break;
+                    case 3: temp = 31
+                        break;
+                    case 4: temp = 30
+                        break;
+                    case 5: temp = 31
+                        break;
+                    case 6: temp = 30
+                        break;
+                    case 7: temp = 31
+                        break;
+                    case 8: temp = 31
+                        break;
+                    case 9: temp = 30
+                        break;
+                    case 10: temp = 31
+                        break;
+                    case 11: temp = 30
+                        break;
+                    case 12: temp = 31
+                        break;
+                    default:
+                        break;
+                }
+
+                //current date
+                let CurrentDates = new Date()
+                let CurrentYear = CurrentDates.getFullYear()
+                let CurrentDay = CurrentDates.getDate()
+                let months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+                let CurrentMonth = months[CurrentDates.getMonth()];
+
+                var newDay
+                var newMonth
+                var newYear
+                if (Bday <= CurrentDay) {
+                    newDay = CurrentDay - Bday;
+                    if (CurrentMonth <= Bmonth) {
+                        CurrentMonth--;
+                        newMonth = (CurrentMonth + 12) - Bmonth;
+                        CurrentYear--;
+                        newYear = CurrentYear - Byear;
+                    }
+                    else {
+                        newMonth = Bmonth - CurrentMonth;
+                        newYear = CurrentYear - Byear;
+                    }
+                }
+                else {
+                    newDay = (CurrentDay + temp) - Bday;
+                    if (CurrentMonth <= Bmonth) {
+                        CurrentMonth--;
+                        newMonth = (CurrentMonth + 12) - Bmonth;
+                        CurrentYear--;
+                        newYear = CurrentYear - Byear;
+                    }
+                }
+                document.getElementById('sp1').innerHTML = `Your Age is : ${newYear}, Month is ${newMonth} and ${newDay} Days`;
+            }
+
+        }
+    </script>
+</body>
+
+</html>
