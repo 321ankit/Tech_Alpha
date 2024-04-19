@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Platypi:ital,wght@0,300..800;1,300..800&display=swap"
         rel="stylesheet">
-    <title>To_Do List</title>
+    <title>Age_Calculator</title>
     <style>
         * {
             margin: 0;
@@ -22,7 +22,7 @@
         }
         
         #nm1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             font-family: "Platypi", serif;
         }
         
@@ -32,98 +32,76 @@
         }
         
         #sp1 {
+            font-size: 2rem;
             font-family: "Teko", sans-serif;
         }
 
-        #main1 {
+        #main2 {
             height: 100vh;
             width: 100vw;
-        }
-
-        #main2 {
-            height: 100%;
-            width: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-direction: column;
         }
-        
+
         #main3 {
-            min-height: 40%;
-            width: 50%;
+            height: 50vh;
+            width: 40vw;
             border-radius: 0.2rem;
             border: 0.1rem solid rgba(0, 0, 0, 0.262);
-            box-shadow: 0.8rem 0.8rem 1rem rgba(0, 0, 0, 0.451);
+            box-shadow: 0.5rem 0.5rem 0.9rem rgba(0, 0, 0, 0.451);
             display: flex;
             align-items: center;
+            justify-content: center;
             flex-direction: column;
             margin-top: 1rem;
         }
 
         #main4 {
-            width: 100%;
+            height: 15vh;
+            width: 25vw;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 1rem 0 0.8rem 0;
+            margin-bottom: 1rem;
         }
 
         #main5 {
-            width: 100%;
+            height: 15vh;
+            width: 100vw;
             display: flex;
             align-items: center;
             flex-direction: column;
             margin: 0.2rem;
         }
-        
-        #main6 {
-            width: 100%;
-            padding: 0 1rem;
-        }
 
-        #main6 div {
-            height: 4rem;
-            width: 100%;
-            font-size: 2rem;
-            padding: 0 1rem;
-            margin: 0.5rem 0;
-            background-color: black;
-            color: white;
-            border-radius: 0.3rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        #main6 div button {
-            width: 8rem;
-            height: 2.5rem;
-            border: 1px solid black;
-            border-radius: 0.2rem;
-            margin-left: 1rem;
-            font-size: 1.5rem;
-            font-weight: bolder;
-        }
-
-        #i1 {
-            min-width: 10%;
-            height: 4rem;
+        .inp {
+            width: 10rem;
+            height: 3.5rem;
             border: 0.2rem solid rgba(0, 0, 0, 0.517);
-            border-radius: 0.2rem;
             padding-left: 0.5rem;
-            font-size:2.5rem;
+            font-size: 1.5rem;
+        }
+        
+        #s1 {
+            width: 10rem;
+            height: 3.5rem;
+            margin: 0 0.3rem;
+            border: 0.2rem solid rgba(0, 0, 0, 0.517);
+            padding-left: 0.2rem;
+            font-size: 1.5rem;
         }
         
         #btn {
-            width: 10rem;
-            height: 4rem;
+            font-size: 2rem;
+            width: 13rem;
+            height: 3.5rem;
             color: white;
             background-color: black;
             border: 1px solid black;
-            border-radius: 0.2rem;
-            margin-left: 1rem;
-            font-size: 2rem;
+            border-radius: 5rem;
+            margin-bottom: 1rem;
         }
 
         @media screen and (max-width:600px) {
@@ -132,73 +110,149 @@
             }
 
             #main3 {
-                min-height: 15%;
-                width: 50%;
+                height: 20vh;
+                width: 60vw;
                 margin-top: 1rem;
             }
 
-            #main6 div {
-                height: 3rem;
-                font-size: 1.3rem;
+            #main4 {
+                height: 5vh;
+                width: 25vw;
+                margin-bottom: 1rem;
             }
 
-            #main6 div button {
-                width: 6rem;
-                height: 2rem;
+            #nm2{
+                margin-top: 4rem;
             }
 
-            #i1 {
-                width: 20rem;
-                height: 3rem;
+            #main5 {
+                height: 12vh;
+                margin: 0.2rem;
+            }
+
+            .inp {
+                width: 8rem;
+                height: 5rem;
+            }
+
+            #s1 {
+                width: 9rem;
+                height: 5rem;
             }
 
             #btn {
-                width: 10rem;
-                height: 3rem;
+                width: 15rem;
+                height: 4rem;
             }
         }
     </style>
 </head>
-
 <body>
     <div id="main1">
         <div id="main2">
-            <h1 id="nm1">To Do List</h1>
+            <h1 id="nm1">Age Calculator</h1>
             <div id="main3">
+                <h3 id="nm2">Enter Your Date Of Birth(DOB) :</h3>
                 <div id="main4">
-                    <input type="text" id="i1" placeholder="Enter here..." autofocus/>
-                    <button id="btn" onclick="added()">Add</button>
+                    <input class="inp" type="number" id="i1" placeholder="Date" />
+                    <select name="" id="s1" class="inp">
+                        <option value="" selected disabled>Month</option>
+                        <option value="1">Jan</option>
+                        <option value="2">Feb</option>
+                        <option value="3">March</option>
+                        <option value="4">April</option>
+                        <option value="5">May</option>
+                        <option value="6">June</option>
+                        <option value="7">July</option>
+                        <option value="8">Aug</option>
+                        <option value="9">Spt</option>
+                        <option value="10">Oct</option>
+                        <option value="11">Nov</option>
+                        <option value="12">Dec</option>
+                    </select>
+                    <input class="inp" type="number" id="i2" placeholder="Year" />
                 </div>
                 <div id="main5">
-                    <h2 id="nm2">List</h2>
-                    <div id="main6">
-                    </div>
+                    <button id="btn" onclick="Calc()">Calculate</button>
+                    <h2 id="sp1"></h2>
                 </div>
             </div>
         </div>
     </div>
 
-
     <script>
-        function added() {
-            let data = document.getElementById('i1').value;
-            if (data == '') {
-                alert('Enter Something For Adding')
-            }
-            else {
-                let t1 = document.createElement('div');
-                t1.textContent = data;
-                let d1 = document.querySelector('div#main6');
-                d1.appendChild(t1);
+        function Calc() {
+            let Bday = Number(document.getElementById('i1').value);
+            let Bmonth = Number(document.getElementById('s1').value);
+            let Byear = Number(document.getElementById('i2').value);
+            if (Bday == '' || Bmonth == '' || Byear == '') {
+                alert('Enter Your Birth Date')
+            } else {
+                var temp
+                switch (Bmonth) {
+                    case 1: temp = 30
+                        break;
+                    case 2: temp = 29
+                        break;
+                    case 3: temp = 31
+                        break;
+                    case 4: temp = 30
+                        break;
+                    case 5: temp = 31
+                        break;
+                    case 6: temp = 30
+                        break;
+                    case 7: temp = 31
+                        break;
+                    case 8: temp = 31
+                        break;
+                    case 9: temp = 30
+                        break;
+                    case 10: temp = 31
+                        break;
+                    case 11: temp = 30
+                        break;
+                    case 12: temp = 31
+                        break;
+                    default:
+                        break;
+                }
 
-                let t2 = document.createElement('button');
-                t2.textContent = 'Delete';
-                t1.appendChild(t2).addEventListener('click', function (e) {
-                    e.target.parentElement.remove()
-                })
+                //current date
+                let CurrentDates = new Date()
+                let CurrentYear = CurrentDates.getFullYear()
+                let CurrentDay = CurrentDates.getDate()
+                let months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+                let CurrentMonth = months[CurrentDates.getMonth()];
 
-                document.getElementById('i1').value = '';
+                var newDay
+                var newMonth
+                var newYear
+                if (Bday <= CurrentDay) {
+                    newDay = CurrentDay - Bday;
+                    if (CurrentMonth <= Bmonth) {
+                        CurrentMonth--;
+                        newMonth = (CurrentMonth + 12) - Bmonth;
+                        CurrentYear--;
+                        newYear = CurrentYear - Byear;
+                    }
+                    else {
+                        newMonth = Bmonth - CurrentMonth;
+                        newYear = CurrentYear - Byear;
+                    }
+                }
+                else {
+                    newDay = (CurrentDay + temp) - Bday;
+                    if (CurrentMonth <= Bmonth) {
+                        CurrentMonth--;
+                        newMonth = (CurrentMonth + 12) - Bmonth;
+                        CurrentYear--;
+                        newYear = CurrentYear - Byear;
+                    }
+                }
+                document.getElementById('sp1').innerHTML = `Your Age is : ${newYear}, Month is ${newMonth} and ${newDay} Days`;
             }
+
         }
     </script>
 </body>
